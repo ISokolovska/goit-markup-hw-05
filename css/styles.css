@@ -379,8 +379,11 @@ ul.button.list {
   max-height: 294px;
 }
 
-.thumb-img {
+.work .item {
+  display: block;
   position: relative;
+  overflow: hidden;
+
 }
 
 .thumb-text {
@@ -389,13 +392,14 @@ ul.button.list {
   padding-bottom: 27px;
 }
 
-.thumb-card {
+.thumb-img > .thumb-card {
+  display: flex;
+  content: '';
   position: absolute;
   width: 370px;
+  height: 70px;
   bottom: 0;
-  /* transform: translateY(-5%); */
   
-  display: flex;
   justify-content: center;
 
   color: var(--button-text-color);
@@ -690,51 +694,97 @@ ul.projects.list {
   padding: 20px 24px;
 }
 
-.projects.item {
+.box {
+  display: block;
+  content: '';
+  position: relative;
+  width: 370px;
+  height: 294px;
+  margin-left: auto;
+  margin-right: auto;
+  
   overflow: hidden;
 }
 
-.projects-img::before {
-  display: inline-block;
+.projects.item:hover .projects-overlay,
+.projects.item:focus .projects-overlay {
+  transform: translateY(0);
+}
+
+.projects-overlay {
+  display: block;
   content: '';
   position: absolute;
- 
-  width: 100%;
+  top: 0;
+  left: 0;
+  width: 370px;
   height: 294px;
- 
+
   background-color: rgba(33, 150, 243, 0.9);
 
   transform: translateY(100%);
   transition: transform 250ms var(--timing-function);
 }
 
-.projects-img:hover::before {
-  transform: translateY(0);
+.projects-overlay > p {
+  padding: 63px 24px;
+
+  color: var(--button-text-color);
+  
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
 }
 
-/* .backdrop {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  width: 1600px;
-  height: 1024px;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-} */
+  opacity: 1;
 
-/* .modal {
+  transition: opacity 250ms var(--timing-function);
+}
+
+.modal {
   position: absolute;
-  width: 528px;
-  height: 581px;
-  left: 536px;
-  top: 221px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  min-width: 528px;
+  min-height: 581px;
   background: var(--button-text-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-} */
+}
 
-/* .button-modal {
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button-modal-close {
+  display: flex;
   position: absolute;
+  content: '';
+  justify-content: center;
+  align-items: center;
+  top: 8px;
+  right: 8px;
   width: 30px;
   height: 30px;
+  background: var(--button-text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
 
-} */
+.close-svg {
+  width: 18px;
+  height: 18px;
+}
+
