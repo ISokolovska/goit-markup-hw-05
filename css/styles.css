@@ -110,6 +110,7 @@ body {
   line-height: 1.2;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: transform 250ms var(--timing-function);
 }
 
 .site-nav .link:hover,
@@ -134,7 +135,6 @@ body {
   border-radius: 2px;
 
   opacity: 1;
-  transition: opacity 250ms var(--timing-function);
 }
 
 .auth-nav {
@@ -159,6 +159,8 @@ a.auth-svg {
   line-height: 1.2;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .auth-svg:hover,
@@ -279,6 +281,8 @@ ul.button.list {
   font-size: 16px;
   line-height: 1.6;
   text-align: center;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .button .button.secondary:hover,
@@ -476,6 +480,8 @@ ul.button.list {
   justify-content: center;
   align-items: center;
   color: var(--color-icon);
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .command-name .link-svg:hover,
@@ -518,6 +524,8 @@ ul.clients .item:last-child {
   color: var(--color-icon);
   border: 1px solid var(--color-icon);
   border-radius: 4px;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .clients-svg:hover,
@@ -545,6 +553,8 @@ ul.clients .item:last-child {
   font-size: 14px;
   line-height: 1.7;
   text-decoration: none;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .footer .address:hover,
@@ -558,6 +568,8 @@ ul.clients .item:last-child {
   font-size: 14px;
   line-height: 1.7;
   text-decoration: none;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .footer .connect:hover,
@@ -617,6 +629,7 @@ div.vector {
   border-radius: 50%;
   fill: var(--button-text-color);
   background: rgba(255, 255, 255, 0.1);
+  transition: transform 250ms var(--timing-function);
 }
 
 .link-svg:hover,
@@ -668,6 +681,7 @@ ul.projects.list {
   margin-bottom: 30px;
   border: 1px solid var(--color-border-projects);
   overflow: hidden;
+  transition: transform 250ms var(--timing-function);
 }
 
 .projects.item:hover {
@@ -706,14 +720,11 @@ ul.projects.list {
   overflow: hidden;
 }
 
-.projects.item:hover .projects-overlay,
-.projects.item:focus .projects-overlay {
+.projects.item:hover .projects-overlay {
   transform: translateY(0);
 }
 
 .projects-overlay {
-  display: block;
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -745,27 +756,34 @@ ul.projects.list {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  visibility: visible;
 
-  transition: opacity 250ms var(--timing-function);
+  transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
 
 .modal {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   
   min-width: 528px;
   min-height: 581px;
   background: var(--button-text-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.6);
 }
 
 .button-modal-close {
